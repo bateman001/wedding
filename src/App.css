@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "ballet";
+  src: local("ballet"),
+    url(../src/utils/fonts/ballet/Ballet_48pt/Ballet_48pt-Regular.ttf)
+      format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: "quattrocento";
+  src: local("quattrocento"),
+    url(../src/utils/fonts/Quattrocento/Quattrocento-Regular.ttf)
+      format("truetype");
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: "quattrocento-bold";
+  src: local("quattrocento"),
+    url(../src/utils/fonts/Quattrocento/Quattrocento-Bold.ttf)
+      format("truetype");
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: "ballet";
+  letter-spacing: 0px;
+}
+h2,
+button {
+  font-family: "quattrocento-bold";
+}
+
+h3,
+p,
+li,
+a {
+  font-family: "quattrocento";
+
+  /* letter-spacing: 0px; */
+}
+
+h1,
+h2,
+h3,
+p,
+button,
+li,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+.home-intro {
+  background-image: url(../src/utils/images/proposalphotosbarcelona-b-67.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 85vh;
+  background-color: #f1f5f260;
+  background-blend-mode: overlay;
+
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  /* border: 1px solid red; */
 }
 
-.App-link {
-  color: #61dafb;
+.rsvp-button {
+  width: 200px;
+  padding: 10px;
+  font-size: 20px;
+  justify-self: baseline;
+  color: #f1f5f2;
+  justify-self: baseline;
+  cursor: pointer;
+  background-color: #092b22;
+  border: 1px solid transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rsvp {
+  background-image: url(../src/utils/images/banthonyprod_watercolor_leaf_wreath_on_a_white_background_in_th_39f5cdd5-9ff7-417f-92d9-281fe6234a1d.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  background-color: #f1f5f260;
+  background-blend-mode: overlay;
+}
+
+.next-button {
+  width: 100px;
+  padding: 10px;
+  margin-top: 30px;
+  font-size: 20px;
+  color: #f1f5f2;
+  justify-self: baseline;
+  cursor: pointer;
+  background-color: #092b22;
+  border: 1px solid transparent;
+}
+
+.rsvp-button:hover,
+.next-button:hover {
+  transition: 0.4s;
+  color: #092b22;
+  background-color: white;
+  border: 1px solid #092b22;
 }
