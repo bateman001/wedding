@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isMobile } from "react-device-detect";
 import { GiCastle } from "react-icons/gi";
 import { colors } from "../utils/colors";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
 import { createTheme } from "@mui/material/styles";
@@ -12,6 +12,7 @@ interface NavInfo {
   link: "rsvp?step=1" | "registry" | "travel" | "dress-code" | "about";
   pathName: "rsvp" | "registry" | "travel" | "dress-code" | "about";
 }
+
 export const Header = () => {
   const navigation: NavInfo[] = [
     {
@@ -76,12 +77,12 @@ const NavItem = (props: { item: NavInfo; index: number }) => {
       to={item.link}
       key={`navigation-${index}`}
       style={{
-        color: "white",
+        color: "black",
         textDecoration: "none",
         fontSize: isMobile ? "30px" : "20px",
       }}
     >
-      <p>{item.name}</p>
+      <p className="nav-item">{item.name}</p>
     </Link>
   );
 };
@@ -99,14 +100,16 @@ const Web = (props: HeaderProps) => {
   return (
     <header
       style={{
-        backgroundColor: colors.green,
+        backgroundColor: "transparent",
+        position: "fixed",
         color: colors.white,
         width: "100%",
         textAlign: "center",
-        padding: "10px 0 0 0",
+        padding: "10px 0",
         display: "flex",
         flexDirection: "column",
         height: "15vh",
+        zIndex: 2,
       }}
     >
       <div
@@ -114,7 +117,6 @@ const Web = (props: HeaderProps) => {
           display: "flex",
           alignItems: "center",
           flex: 1,
-          // padding: "0 30px",
         }}
       >
         <div
@@ -126,7 +128,8 @@ const Web = (props: HeaderProps) => {
           style={{
             cursor: "pointer",
             flex: 1,
-            fontSize: "50px",
+            fontSize: "70px",
+            color: "black",
             // textShadow: "#c6b97379 1px 0 5px",
           }}
           onClick={() => nav("/")}

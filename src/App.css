@@ -59,7 +59,7 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 85vh;
+  height: 100vh;
   background-color: #f1f5f260;
   background-blend-mode: overlay;
 
@@ -87,7 +87,7 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 90vh;
+  height: 100vh;
   background-color: #f1f5f260;
   background-blend-mode: overlay;
 }
@@ -110,4 +110,97 @@ a {
   color: #092b22;
   background-color: white;
   border: 1px solid #092b22;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  margin: 110px auto 0;
+  border: solid 10px #8822aa;
+  border-radius: 50%;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+
+  transition: all 0.5s ease-in;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  /* transform: rotate(-90deg); to start the circle from the top */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7); */
+  }
+
+  70% {
+    transform: scale(1);
+    /* box-shadow: 0 0 0 10px rgba(0, 0, 0, 0); */
+  }
+
+  100% {
+    transform: scale(0.95);
+    /* box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); */
+  }
+}
+
+.castle {
+  transform: scale(1);
+  animation: pulse 2s 3000;
+}
+
+.loading-enter {
+  opacity: 1;
+}
+
+.loading-enter-active {
+  opacity: 1;
+  transition: opacity 3000ms;
+}
+
+.loading-exit {
+  opacity: 1;
+}
+
+.loading-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms;
+}
+
+.nav-item {
+  padding: 5px 0;
+}
+
+.nav-item:hover {
+  transition: 0.2s;
+  border-bottom: 2px solid black;
 }

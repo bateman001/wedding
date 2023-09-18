@@ -13,13 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { colors } from "../utils/colors";
 import { Guest, guests } from "../utils/guests";
 import { isMobile } from "react-device-detect";
-import {
-  FoodChoice,
-  R,
-  Person,
-  Rsvp,
-  RSVPContext,
-} from "../context/rsvpContext";
+import { FoodChoice, R, Person, RSVPContext } from "../context/rsvpContext";
 import * as Ramda from "ramda";
 
 export const RSVP = () => {
