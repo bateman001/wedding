@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { Guest } from "../utils/guests";
+import { Party, Guest } from "../utils/types";
 export type FoodChoice = "chicken" | "fish" | "vegetarian";
 
 export interface Person {
@@ -18,12 +18,15 @@ export interface Rsvp {
 export type R = keyof Rsvp;
 
 export interface RSVPInfo {
-  guest: Guest;
-  setGuest: (guest: Guest) => void;
+  guests: Guest[];
+  setGuests: (guests: Guest[]) => void;
   rsvp: Rsvp;
   setRSVP: (rsvp: Rsvp) => void;
-  plusOne: Person[];
-  setPlusOne: (plusOnes: Person[]) => void;
+  plusOne: number;
+  setPlusOne: (plusOnes: number) => void;
+  allReservations: Party[];
+  currentParty: Party;
+  setCurrentParty: (current: Party) => void;
 }
 
 export const RSVPContext = createContext<RSVPInfo>({} as RSVPInfo);

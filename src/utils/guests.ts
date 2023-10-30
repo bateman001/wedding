@@ -1,10 +1,4 @@
-export interface Guest {
-  reservationName: string;
-  allotedGuestCount: number;
-  persons: string[];
-}
-
-export const guests: Guest[] = [
+export const guests = [
   {
     reservationName: "Amos Chapman",
     allotedGuestCount: 2,

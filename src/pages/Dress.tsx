@@ -5,8 +5,16 @@ import { isMobile } from "react-device-detect";
 import { colors } from "../utils/colors";
 import flowers from "../utils/images/waterColorFlowers.PNG";
 import { useState } from "react";
-
+import { isBrowser } from "react-device-detect";
 export const Dress = () => {
+  if (isBrowser) {
+    return <Web />;
+  } else {
+    return <Mobile />;
+  }
+};
+
+const Web = () => {
   const [gender, setGender] = useState<"Ladies" | "Mens">("Ladies");
 
   return (
@@ -233,6 +241,125 @@ export const Dress = () => {
             >
               <img src={flowers} alt="flowers" style={{ width: "60%" }} />
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const Mobile = () => {
+  const [gender, setGender] = useState<"Ladies" | "Mens">("Ladies");
+
+  return (
+    <div
+      style={{
+        backgroundColor: "#a6ae95",
+      }}
+    >
+      <div
+        style={{
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "80vh",
+          backgroundImage: `url(${dress})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "#f1f5f260",
+          backgroundBlendMode: "saturation",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "100px",
+            width: "100%",
+            justifySelf: "center",
+            color: colors.green,
+            textShadow: "0px 1px 5px rgba(128,128,128,0.84)",
+          }}
+        >
+          Colorful Formal
+        </h2>
+      </div>
+
+      <div
+        style={{
+          height: "100vh",
+          backgroundColor: "#a6ae95",
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+      >
+        <h1
+          style={{
+            color: "#F1F5F2",
+            fontSize: "80px",
+          }}
+        >
+          {gender} {gender === "Ladies" ? "Dress" : "Wear"}
+        </h1>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p
+            style={{
+              padding: "10px ",
+              fontSize: "25px",
+              textAlign: "center",
+            }}
+          >
+            {gender === "Ladies"
+              ? " We encourage you to wear formal dresses that radiate with the colors of the season"
+              : " We encourage tailored suits in bold, spring-inspired hues instead of the traditional black."}
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            backgroundImage: `url(${
+              gender === "Ladies" ? ladiesDress : suits
+            })`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            borderRadius: "40%",
+            width: "100%",
+            height: "60%",
+          }}
+        >
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <button
+              className="rsvp-button"
+              style={{ marginTop: "30px", zIndex: 3 }}
+              onClick={() => {
+                const gnd = gender === "Ladies" ? "Mens" : "Ladies";
+
+                setGender(gnd);
+              }}
+            >
+              Show {gender === "Ladies" ? "Mens" : "Ladies"}
+            </button>
           </div>
         </div>
       </div>
