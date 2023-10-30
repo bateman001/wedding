@@ -4,63 +4,59 @@ import { Header } from "../components/Header";
 import { LoadingScreen } from "../components/Loading";
 
 export const Home = () => {
-  return <div>{isMobile ? <Mobile /> : <Web />}</div>;
+    return <div>{isMobile ? <Mobile /> : <Web />}</div>;
 };
 
 const Web = () => {
-  const nav = useNavigate();
+    const nav = useNavigate();
 
-  return (
-    <>
-      <LoadingScreen />
-      <Header />
-      <div className="home-intro">
-        <div
-          style={{
-            textAlign: "center",
-            // border: "1px solid red",
-            height: "60%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <div>
-            <h1 style={{ fontSize: "150px" }}>Hammond Castle</h1>
-            <h2 style={{ fontSize: "50px" }}>Gloucester, Massachusetts</h2>
-          </div>
-          <h3 style={{ fontSize: "30px", paddingTop: "20px" }}>
-            June 2nd, 2024
-          </h3>
-          <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
-            RSVP
-          </button>
-        </div>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <LoadingScreen />
+            <Header />
+            <div className="home-intro">
+                <div
+                    style={{
+                        textAlign: "center",
+                        // border: "1px solid red",
+                        height: "60%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "space-between"
+                    }}
+                >
+                    <div>
+                        <h1 className="hammond-title">Hammond Castle</h1>
+                        <h2 style={{ fontSize: "50px" }}>Gloucester, Massachusetts</h2>
+                    </div>
+                    <h3 style={{ fontSize: "30px", paddingTop: "20px" }}>June 2nd, 2024</h3>
+                    <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
+                        RSVP
+                    </button>
+                </div>
+            </div>
+        </>
+    );
 };
 
 const Mobile = () => {
-  const nav = useNavigate();
+    const nav = useNavigate();
 
-  return (
-    <>
-      <Header />
-      <div className="home-intro">
-        <div style={{ textAlign: "center" }}>
-          <h1 style={{ fontSize: "50px" }}>Hammond Castle</h1>
-          <h2 style={{ fontSize: "20px" }}>Gloucester, Massachusetts</h2>
-          <h3 style={{ fontSize: "20px", paddingTop: "20px" }}>
-            June 2nd, 2024
-          </h3>
-        </div>
+    return (
+        <>
+            <Header />
+            <div className="home-intro">
+                <div style={{ textAlign: "center" }}>
+                    <h1 style={{ fontSize: "50px" }}>Hammond Castle</h1>
+                    <h2 style={{ fontSize: "20px" }}>Gloucester, Massachusetts</h2>
+                    <h3 style={{ fontSize: "20px", paddingTop: "20px" }}>June 2nd, 2024</h3>
+                </div>
 
-        <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
-          RSVP
-        </button>
-      </div>
-    </>
-  );
+                <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
+                    RSVP
+                </button>
+            </div>
+        </>
+    );
 };

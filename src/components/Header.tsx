@@ -130,10 +130,9 @@ const Web = (props: HeaderProps) => {
                     style={{
                         cursor: "pointer",
                         flex: 1,
-                        fontSize: "70px",
                         color: "black"
-                        // textShadow: "#c6b97379 1px 0 5px",
                     }}
+                    className="michaela-brent-title"
                     onClick={() => nav("/")}
                 >
                     {title}

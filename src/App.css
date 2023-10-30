@@ -218,3 +218,33 @@ a {
     background-color: #092b22;
     border: 1px solid #092b22;
 }
+
+.hammond-title {
+    font-size: 150px;
+    font-family: "ballet";
+    letter-spacing: 0px;
+}
+
+.michaela-brent-title {
+    font-size: 70px;
+    font-family: "ballet";
+    letter-spacing: 0px;
+}
+
+@media screen and (min-width: 1060px) and (max-width: 1499px) {
+    .michaela-brent-title,
+    .hammond-title {
+        font-size: 50px;
+        font-family: "ballet";
+        letter-spacing: 0px;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .michaela-brent-title,
+    .hammond-title {
+        font-size: 40px;
+        font-family: "ballet";
+        letter-spacing: 0px;
+    }
+}
