@@ -32,7 +32,7 @@ export const Travel = () => {
         <div>
             <div
                 style={{
-                    height: "75vh",
+                    height: isMobile ? "75vh" : "90vh",
                     padding: "30px",
                     display: "flex",
                     flexDirection: "column",
@@ -161,7 +161,8 @@ const Hotels = () => {
                     display: "flex",
                     justifyContent: isMobile ? "center" : "flex-start",
                     alignItems: "center",
-                    flex: 0.1
+                    flex: 0.1,
+                    paddingBottom: "10px"
                 }}
             >
                 Recommended Hotels
@@ -184,7 +185,7 @@ const Hotels = () => {
                                 padding: "10px",
                                 borderRadius: "20px",
                                 backgroundColor: colors.grey,
-                                height: isMobile ? "25vh" : "auto"
+                                height: isMobile ? "25vh" : "50vh"
                             }}
                         >
                             <div
@@ -214,7 +215,7 @@ const Hotels = () => {
                                 >
                                     {x.name}
                                 </a>
-                                {/* <p style={{ fontSize: isMobile ? "10px" : "20px" }}>{x.description}</p> */}
+                                {!isMobile && <p style={{ fontSize: "20px" }}>{x.description}</p>}
                             </div>
                         </div>
                     );
