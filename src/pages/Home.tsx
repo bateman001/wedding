@@ -46,7 +46,7 @@ const Mobile = () => {
     return (
         <>
             <Header />
-            <div className="home-intro">
+            <div className="home-intro" style={{ height: "85vh" }}>
                 <div style={{ textAlign: "center" }}>
                     <h1 style={{ fontSize: "50px" }}>Hammond Castle</h1>
                     <h2 style={{ fontSize: "20px" }}>Gloucester, Massachusetts</h2>

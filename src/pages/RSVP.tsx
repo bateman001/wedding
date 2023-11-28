@@ -207,7 +207,7 @@ export const RSVP = () => {
     };
 
     return (
-        <div className="rsvp">
+        <div className="rsvp" style={{ height: isMobile ? "85vh" : "100vh" }}>
             {step === 1 && (
                 <div
                     style={{

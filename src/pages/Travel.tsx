@@ -55,11 +55,7 @@ export const Travel = () => {
                 </div>
             </div>
 
-            <div
-            // style={{
-            //     height: "100vh"
-            // }}
-            >
+            <div>
                 <div
                     style={{
                         alignSelf: "center",
@@ -215,7 +211,7 @@ const Hotels = () => {
                                 >
                                     {x.name}
                                 </a>
-                                {!isMobile && <p style={{ fontSize: "20px" }}>{x.description}</p>}
+                                {!isMobile && <p style={{ fontSize: "20px", overflowY: "scroll" }}>{x.description}</p>}
                             </div>
                         </div>
                     );
