@@ -18,12 +18,7 @@ const Web = () => {
     const [gender, setGender] = useState<"Ladies" | "Mens">("Ladies");
 
     return (
-        <div
-        // style={{
-        //     backgroundColor: "#a6ae95",
-        //     height: "100%"
-        // }}
-        >
+        <div>
             <div
                 style={{
                     textAlign: "center",
@@ -42,7 +37,7 @@ const Web = () => {
             >
                 <h2
                     style={{
-                        fontSize: isMobile ? "50px" : "150px",
+                        fontSize: "150px",
                         width: "100%",
                         justifySelf: "center",
                         color: colors.green,
@@ -269,7 +264,7 @@ const Mobile = () => {
             >
                 <h2
                     style={{
-                        fontSize: "100px",
+                        fontSize: "50px",
                         width: "100%",
                         justifySelf: "center",
                         color: colors.green,
@@ -293,7 +288,7 @@ const Mobile = () => {
                 <h1
                     style={{
                         color: "#F1F5F2",
-                        fontSize: "80px"
+                        fontSize: "50px"
                     }}
                 >
                     {gender} {gender === "Ladies" ? "Dress" : "Wear"}
