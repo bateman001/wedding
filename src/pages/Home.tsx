@@ -30,7 +30,11 @@ const Web = () => {
                         <h1 className="hammond-title">Hammond Castle</h1>
                         <h2 style={{ fontSize: "50px" }}>Gloucester, Massachusetts</h2>
                     </div>
-                    <h3 style={{ fontSize: "30px", paddingTop: "20px" }}>June 2nd, 2024</h3>
+                    <div>
+                        <h3 style={{ fontSize: "30px", paddingTop: "20px" }}>June 2nd, 2024 • 5:30pm</h3>
+                        <p style={{ fontSize: "20px" }}>Reception to follow</p>
+                    </div>
+
                     <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
                         RSVP
                     </button>
@@ -50,7 +54,8 @@ const Mobile = () => {
                 <div style={{ textAlign: "center" }}>
                     <h1 style={{ fontSize: "50px" }}>Hammond Castle</h1>
                     <h2 style={{ fontSize: "20px" }}>Gloucester, Massachusetts</h2>
-                    <h3 style={{ fontSize: "20px", paddingTop: "20px" }}>June 2nd, 2024</h3>
+                    <h3 style={{ fontSize: "20px", paddingTop: "20px" }}>June 2nd, 2024 • 5:30pm</h3>
+                    <p style={{ fontSize: "20px" }}>Reception to follow</p>
                 </div>
 
                 <button onClick={() => nav("/rsvp?step=1")} className="rsvp-button">
