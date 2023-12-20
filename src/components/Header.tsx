@@ -9,7 +9,7 @@ import { createTheme } from "@mui/material/styles";
 
 interface NavInfo {
     name: "RSVP" | "Registry" | "Travel" | "Dress Code" | "Home";
-    link: "rsvp?step=1" | "registry" | "travel" | "dress-code" | "";
+    link: "rsvp?step=1" | "https://www.zola.com/registry/brentandmichaela2024" | "travel" | "dress-code" | "";
     pathName: "rsvp" | "registry" | "travel" | "dress-code" | "";
 }
 
@@ -32,7 +32,7 @@ export const Header = () => {
         },
         {
             name: "Registry",
-            link: "registry",
+            link: "https://www.zola.com/registry/brentandmichaela2024",
             pathName: "registry"
         },
 

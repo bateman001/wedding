@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { colors } from "../utils/colors";
 import hammond from "../utils/images/gloucester.webp";
-import beauport from "../utils/images/BeauportInn.jpeg";
+import beauport from "../utils/images/gallery-ocean-house-gloucester.avif";
 import atlantis from "../utils/images/atlantis.jpeg";
 import capeann from "../utils/images/cape-ann-marina.jpeg";
 import rockport from "../utils/images/rock-port-inn.jpeg";
@@ -114,11 +114,11 @@ export const Travel = () => {
 const Hotels = () => {
     const hotels = [
         {
-            name: "Beauport Hotel",
-            link: "https://www.beauporthotel.com/",
+            name: "Ocean House",
+            link: "https://www.oceanhousegloucester.com/",
             pic: beauport,
             description:
-                "Situated on Pavilion Beach in Gloucester, Massachusetts, Beauport Hotel Gloucester is a one-of-a-kind luxury boutique hotel with panoramic views of the city of Gloucester and Gloucester Harbor. The four-story building is designed to emulate New England’s grand beachfront hotels and summer homes, incorporating gambrel roofs and dormers, cedar shingling, and waterfront balconies with sliding glass doors. With our convenient location, onsite restaurant, rooftop pool and bar, and seasonal activities, our hotel is your one-stop, year-round spot for luxurious oceanfront travel. Discover for yourself why we have been called the best beachfront hotel in Gloucester, Massachusetts!"
+                "Drive 40 miles north up the coast from Boston to experience a charming hotel in Gloucester, MA, on Cape Ann. The perfect place for relaxation and adventure, Ocean House Hotel at Bass Rocks invites you to enjoy this waterfront destination with magnificent views of the Atlantic Ocean. We're minutes away from beaches, art galleries, museums, shops, and dining."
         },
         {
             name: "The Hotel at Cape Ann Marina",
@@ -237,7 +237,7 @@ const Airport = () => {
 
                 <p>
                     We're eagerly awaiting your arrival to celebrate our special day! To help you get from Logan
-                    International Airport to the Beauport Hotel in Gloucester, we’ve compiled this quick guide.
+                    International Airport to Gloucester, we’ve compiled this quick guide.
                 </p>
             </div>
 
@@ -336,7 +336,7 @@ const Airport = () => {
                 }}
             >
                 <div>
-                    <h2 style={{ fontSize: "30px" }}>Step 2: From North Station to the Beauport Hotel in Gloucester</h2>
+                    <h2 style={{ fontSize: "30px" }}>Step 2: From North Station to Gloucester</h2>
                     <ol style={{ padding: "0 30px" }}>
                         <li style={{ margin: "10px 0" }}>
                             <a
@@ -350,11 +350,7 @@ const Airport = () => {
                             Newburyport/Rockport Line that stops at Gloucester.
                         </li>
                         <li style={{ margin: "10px 0" }}>
-                            Final Stretch: After an hour-long train ride, you’ll arrive in Gloucester. Taxis or
-                            ride-shares can take you directly to the{" "}
-                            <a href="https://goo.gl/maps/2LKmsUUa9XuAH2aP7" target="_blank" rel="noopener noreferrer">
-                                Beauport Hotel.
-                            </a>
+                            Final Stretch: After an hour-long train ride, you’ll arrive in Gloucester.
                         </li>
                     </ol>
                 </div>

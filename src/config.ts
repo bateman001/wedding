@@ -1,3 +1,4 @@
 export const config = {
-  api: "http://localhost:8000",
+    api: process.env.WEDDING_API,
+    api_key: process.env.API_KEY
 };

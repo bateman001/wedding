@@ -1,7 +1,6 @@
 import ladiesDress from "../utils/images/croppedDresses.png";
 import suits from "../utils/images/mensSuits.png";
 import dress from "../utils/images/hangingDress.png";
-import { isMobile } from "react-device-detect";
 import { colors } from "../utils/colors";
 import flowers from "../utils/images/waterColorFlowers.PNG";
 import { useState } from "react";
