@@ -23,7 +23,12 @@ export const RSVPState = (props: any) => {
 
     // FUNCTIONS
     const getAllReservations = async () => {
-        const res = await fetch(`${config.api}/party/getAllParties`);
+        const res = await fetch(`${config.api}/party/getAllParties`, {
+            headers: {
+                "content-type": "application/json",
+                "x-api-key": config.api_key as string
+            }
+        });
         const reservations: Party[] = await res.json();
         setAllReservations(reservations);
     };

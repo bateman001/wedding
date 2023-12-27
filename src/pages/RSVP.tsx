@@ -86,7 +86,8 @@ export const RSVP = () => {
         await fetch(`${config.api}/guest/updateGuest`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "x-api-key": config.api_key as string
             },
             body: JSON.stringify(data)
         });
@@ -135,7 +136,12 @@ export const RSVP = () => {
 
     const getReservation = async (id: number) => {
         const res = allReservations.filter(x => x.id === id)[0];
-        const guestRes = await fetch(`${config.api}/party/getGuestsByParty/${id}`);
+        const guestRes = await fetch(`${config.api}/party/getGuestsByParty/${id}`, {
+            headers: {
+                "content-type": "application/json",
+                "x-api-key": config.api_key as string
+            }
+        });
         const guests: Guest[] = await guestRes.json();
         // const pluseOnes: Partial<Guest>[] = [];
         const diff = res.allowed_party_number - guests.length;
@@ -410,7 +416,11 @@ export const RSVP = () => {
                             }
                         })}
                     </div>
-
+                    <div style={{ margin: "20px 0" }}>
+                        <p style={{ color: "red" }}>
+                            *Please reach out to the Bride and Groom if anyone in your party has a food allergy.
+                        </p>
+                    </div>
                     <ButtonGroup next={() => nav("/rsvp?step=5")} />
                 </div>
             )}
