@@ -51,7 +51,6 @@ export const RSVP = () => {
                 break;
             }
         }
-        console.log("nextStep", nextStep);
         nav(`/rsvp?step=${nextStep}`);
     };
 
@@ -63,12 +62,9 @@ export const RSVP = () => {
     };
 
     const updateMeal = (index: number, food: FoodChoice) => {
-        console.log("index", index);
-        console.log("food", food);
         const names = [...guests];
         const person = names[index];
         person.meal = food;
-        console.log("person", person);
         setGuests(names);
     };
 
@@ -168,7 +164,6 @@ export const RSVP = () => {
         const gst = gsts[index];
         gst[key] = update;
 
-        console.log("gsts", gsts);
         setGuests(gsts);
     };
 
@@ -196,7 +191,6 @@ export const RSVP = () => {
     const checkGuests = () => {
         let error = false;
         for (const guest of guests) {
-            console.log("guest", guest);
             if (guest.firstname === "") {
                 error = true;
             }
@@ -329,7 +323,6 @@ export const RSVP = () => {
                                         <TextField
                                             placeholder="First Name"
                                             onChange={e => {
-                                                console.log("e", e.target.value);
                                                 updateGuest(i, "firstname", e.target.value);
                                             }}
                                             error={errors}
