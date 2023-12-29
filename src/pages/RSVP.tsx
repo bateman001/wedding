@@ -171,7 +171,7 @@ export const RSVP = () => {
         return (
             <div
                 style={{
-                    width: isMobile ? "90%" : "25%",
+                    width: isMobile ? "100%" : "100%",
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center"
@@ -207,7 +207,12 @@ export const RSVP = () => {
     };
 
     return (
-        <div className="rsvp" style={{ height: isMobile ? "85vh" : "100vh" }}>
+        <div
+            className="rsvp"
+            style={{
+                height: isMobile ? "85vh" : "100vh"
+            }}
+        >
             {step === 1 && (
                 <div
                     style={{
@@ -254,45 +259,64 @@ export const RSVP = () => {
                         padding: "10px"
                     }}
                 >
-                    <h2>Who in your party will be attending?</h2>
-
                     <div
                         style={{
-                            margin: "20px 0",
+                            textAlign: "center",
+                            minHeight: "30%",
                             display: "flex",
-                            flexDirection: "column"
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "space-between"
                         }}
                     >
-                        {guests.map((val, i) => {
-                            return (
-                                <>
-                                    <FormControlLabel
-                                        key={`person-${i}`}
-                                        control={
-                                            <Checkbox
-                                                value={val.attending}
-                                                checked={val.attending}
-                                                onChange={() => updateChecked(i, !val.attending)}
-                                            />
-                                        }
-                                        label={val.firstname === "" ? "Plus One" : `${val.firstname} ${val.lastname}`}
-                                    />
-                                </>
-                            );
-                        })}
+                        <h2>Who in your party will be attending?</h2>
+
+                        <div
+                            style={{
+                                margin: "20px 0",
+                                display: "flex",
+                                flexDirection: "column"
+                            }}
+                        >
+                            {guests.map((val, i) => {
+                                return (
+                                    <>
+                                        <FormControlLabel
+                                            key={`person-${i}`}
+                                            control={
+                                                <Checkbox
+                                                    value={val.attending}
+                                                    checked={val.attending}
+                                                    onChange={() => updateChecked(i, !val.attending)}
+                                                />
+                                            }
+                                            label={
+                                                val.firstname === "" ? "Plus One" : `${val.firstname} ${val.lastname}`
+                                            }
+                                        />
+                                    </>
+                                );
+                            })}
+                        </div>
+
+                        <div
+                            style={{
+                                width: "100%"
+                            }}
+                        >
+                            <ButtonGroup next={checkRSVP} />
+                        </div>
+
+                        <button
+                            style={{
+                                width: isMobile ? "90%" : "100%"
+                            }}
+                            className="deny-button"
+                            onClick={() => nav("/rsvp?reservation=no")}
+                        >
+                            We will not be attending
+                        </button>
                     </div>
-
-                    <ButtonGroup next={checkRSVP} />
-
-                    <button
-                        style={{
-                            width: isMobile ? "90%" : "25%"
-                        }}
-                        className="deny-button"
-                        onClick={() => nav("/rsvp?reservation=no")}
-                    >
-                        We will not be attending
-                    </button>
                 </div>
             )}
             {step === 3 && (
@@ -307,57 +331,96 @@ export const RSVP = () => {
                         padding: "10px"
                     }}
                 >
-                    <h2>Please enter the name of your Plus 1?</h2>
+                    <div
+                        style={{
+                            textAlign: "center",
+                            minHeight: "30%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "space-between"
+                        }}
+                    >
+                        <h2>Please enter the name of your Plus 1?</h2>
 
-                    {guests.map((person, i) => {
-                        if (person.attending && person.is_plus_one) {
-                            return (
-                                <div
-                                    key={`plus-${i}`}
-                                    style={{
-                                        margin: "10px 0",
-                                        width: isMobile ? "100%" : "25%"
-                                    }}
-                                >
-                                    <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                        <TextField
-                                            placeholder="First Name"
-                                            onChange={e => {
-                                                updateGuest(i, "firstname", e.target.value);
-                                            }}
-                                            error={errors}
+                        {guests.map((person, i) => {
+                            if (person.attending && person.is_plus_one) {
+                                return (
+                                    <div
+                                        key={`plus-${i}`}
+                                        style={{
+                                            margin: "10px 0",
+                                            width: "100%"
+                                        }}
+                                    >
+                                        <div
                                             style={{
-                                                marginRight: "5px",
-                                                backgroundColor: colors.white
-                                                // width: "40vh",
+                                                display: "flex",
+                                                flexDirection: "column",
+                                                alignItems: "center",
+                                                justifyContent: "space-between",
+                                                width: "100%"
                                             }}
-                                            value={person.firstname}
-                                            helperText={errors ? "Incorrect Entry" : ""}
-                                        />
+                                        >
+                                            <div
+                                                style={{
+                                                    padding: "10px 0",
+                                                    width: "100%"
+                                                }}
+                                            >
+                                                <TextField
+                                                    placeholder="First Name"
+                                                    onChange={e => {
+                                                        updateGuest(i, "firstname", e.target.value);
+                                                    }}
+                                                    error={errors}
+                                                    style={{
+                                                        // marginRight: "5px",
+                                                        backgroundColor: colors.white,
+                                                        width: "100%"
+                                                    }}
+                                                    value={person.firstname}
+                                                    helperText={errors ? "Incorrect Entry" : ""}
+                                                />
+                                            </div>
 
-                                        <TextField
-                                            placeholder="Last Name"
-                                            onChange={e => {
-                                                updateGuest(i, "lastname", e.target.value);
-                                            }}
-                                            error={errors}
-                                            style={{
-                                                marginLeft: "5px",
-                                                backgroundColor: colors.white
-                                                // width: "40vh",
-                                            }}
-                                            value={person.lastname}
-                                            helperText={errors ? "Incorrect Entry" : ""}
-                                        />
+                                            <div
+                                                style={{
+                                                    padding: "10px 0",
+                                                    width: "100%"
+                                                }}
+                                            >
+                                                <TextField
+                                                    placeholder="Last Name"
+                                                    onChange={e => {
+                                                        updateGuest(i, "lastname", e.target.value);
+                                                    }}
+                                                    error={errors}
+                                                    style={{
+                                                        // marginLeft: "5px",
+                                                        backgroundColor: colors.white,
+                                                        width: "100%"
+                                                    }}
+                                                    value={person.lastname}
+                                                    helperText={errors ? "Incorrect Entry" : ""}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        } else {
-                            return <></>;
-                        }
-                    })}
+                                );
+                            } else {
+                                return <></>;
+                            }
+                        })}
 
-                    <ButtonGroup next={() => checkGuests()} />
+                        <div
+                            style={{
+                                width: "100%"
+                            }}
+                        >
+                            <ButtonGroup next={() => checkGuests()} />
+                        </div>
+                    </div>
                 </div>
             )}
             {step === 4 && (
@@ -372,49 +435,67 @@ export const RSVP = () => {
                         padding: "10px"
                     }}
                 >
-                    <h2>Please choose meal preference</h2>
+                    <div
+                        style={{
+                            textAlign: "center",
+                            minHeight: "30%",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "space-between"
+                        }}
+                    >
+                        <h2>Please choose meal preference</h2>
 
-                    <div style={{ margin: "20px 0" }}>
-                        {guests.map((guest, i) => {
-                            if (guest.attending) {
-                                return (
-                                    <div key={`meal-${i}`}>
-                                        <div
-                                            style={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "space-between",
-                                                width: isMobile ? "300px" : "500px",
-                                                margin: "10px 0"
-                                            }}
-                                        >
-                                            <h2 style={{ fontSize: isMobile ? "20px" : "30px" }}>
-                                                {guest.firstname} {guest.lastname}
-                                            </h2>
-                                            <Select
-                                                value={guest.meal}
-                                                onChange={e => updateMeal(i, e.target.value as FoodChoice)}
-                                                placeholder="Choose Meal"
-                                                style={{ width: "50%" }}
+                        <div style={{ margin: "20px 0" }}>
+                            {guests.map((guest, i) => {
+                                if (guest.attending) {
+                                    return (
+                                        <div key={`meal-${i}`}>
+                                            <div
+                                                style={{
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    justifyContent: "space-between",
+                                                    width: isMobile ? "300px" : "500px",
+                                                    margin: "10px 0"
+                                                }}
                                             >
-                                                <MenuItem value="chicken">Chicken</MenuItem>
-                                                <MenuItem value="fish">Fish</MenuItem>
-                                                <MenuItem value="vegetarian">Vegetarian</MenuItem>
-                                            </Select>
+                                                <h2 style={{ fontSize: isMobile ? "20px" : "30px" }}>
+                                                    {guest.firstname} {guest.lastname}
+                                                </h2>
+                                                <Select
+                                                    value={guest.meal}
+                                                    onChange={e => updateMeal(i, e.target.value as FoodChoice)}
+                                                    placeholder="Choose Meal"
+                                                    style={{ width: "50%" }}
+                                                >
+                                                    <MenuItem value="chicken">Chicken</MenuItem>
+                                                    <MenuItem value="fish">Fish</MenuItem>
+                                                    <MenuItem value="vegetarian">Vegetarian</MenuItem>
+                                                </Select>
+                                            </div>
                                         </div>
-                                    </div>
-                                );
-                            } else {
-                                return <></>;
-                            }
-                        })}
+                                    );
+                                } else {
+                                    return <></>;
+                                }
+                            })}
+                        </div>
+                        <div style={{ margin: "20px 0" }}>
+                            <p style={{ color: "red" }}>
+                                *Please reach out to the Bride and Groom if anyone in your party has a food allergy.
+                            </p>
+                        </div>
+
+                        <div
+                            style={{
+                                width: "100%"
+                            }}
+                        >
+                            <ButtonGroup next={() => nav("/rsvp?step=5")} />
+                        </div>
                     </div>
-                    <div style={{ margin: "20px 0" }}>
-                        <p style={{ color: "red" }}>
-                            *Please reach out to the Bride and Groom if anyone in your party has a food allergy.
-                        </p>
-                    </div>
-                    <ButtonGroup next={() => nav("/rsvp?step=5")} />
                 </div>
             )}
             {step === 5 && (
