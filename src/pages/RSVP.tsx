@@ -72,7 +72,8 @@ export const RSVP = () => {
         await fetch(`${config.api}/guest/createGuest`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "x-api-key": config.api_key as string
             },
             body: JSON.stringify(guest)
         });
@@ -175,7 +176,6 @@ export const RSVP = () => {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center"
-                    // border: "1px solid red",
                 }}
             >
                 <button className="next-button" onClick={() => goBack()}>
@@ -191,11 +191,13 @@ export const RSVP = () => {
     const checkGuests = () => {
         let error = false;
         for (const guest of guests) {
-            if (guest.firstname === "") {
-                error = true;
-            }
-            if (guest.lastname === "") {
-                error = true;
+            if (guest.attending) {
+                if (guest.firstname === "") {
+                    error = true;
+                }
+                if (guest.lastname === "") {
+                    error = true;
+                }
             }
         }
 
